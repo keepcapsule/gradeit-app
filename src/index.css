@@ -4,6 +4,7 @@ body {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 header {
@@ -393,4 +394,163 @@ button:hover {
   max-width: 500px;
   width: 90%;
   margin: 0 auto;
+}
+
+.main-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 2px solid orange;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.logo-center {
+  flex: 1;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+}
+
+.highlight {
+  color: orange;
+}
+
+.nav-button,
+.logout-button {
+  border: 2px solid orange;
+  color: orange;
+  background: transparent;
+  padding: 0.4rem 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.nav-button:hover,
+.logout-button:hover {
+  background: orange;
+  color: black;
+}
+
+@media (max-width: 600px) {
+  .main-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-left,
+  .nav-right {
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+  .logo-center {
+    margin: 0.5rem 0;
+  }
+}
+
+.logo-center {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.logo-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.highlight {
+  color: orange;
+}
+
+.login-button {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid orange;
+  background: transparent;
+  color: orange;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1.5rem;
+}
+
+.login-button:hover {
+  background: orange;
+  color: black;
+}
+
+.main-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 2px solid orange;
+}
+
+.nav-left, .nav-right {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-button, .logout-button {
+  border: 2px solid orange;
+  background: transparent;
+  color: orange;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.nav-button:hover, .logout-button:hover {
+  background: orange;
+  color: black;
+}
+
+.logo-center {
+  flex-basis: 100%;
+  text-align: center;
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+.logo-text {
+  font-weight: bold;
+  color: white;
+}
+
+.logo-text .highlight {
+  color: orange;
+}
+
+@media (max-width: 600px) {
+  .main-header {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+
+  .nav-left, .nav-right {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .nav-button, .logout-button {
+    width: 80%;
+    max-width: 300px;
+  }
+}
+
+.page-container {
+  max-width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }

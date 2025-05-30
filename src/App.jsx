@@ -1,10 +1,10 @@
-// App.jsx
 import React, { useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { auth, provider } from "./firebase";
 import { signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
 import SearchCard from "./pages/SearchCard";
 import YourCards from "./pages/YourCards";
+import Header from "./components/Header";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -17,7 +17,6 @@ function App() {
       setLoading(false);
       if (!currentUser) navigate("/");
     });
-
     return () => unsubscribe();
   }, []);
 
@@ -30,49 +29,34 @@ function App() {
   };
 
   if (loading) {
-    return (
-      <div style={{ color: "white", textAlign: "center", marginTop: "4rem" }}>
-        Loading...
-      </div>
-    );
+    return <div className="auth-screen">Loading...</div>;
   }
 
   if (!user) {
     return (
       <div className="auth-screen">
-        <h1>GradeIt 🔍</h1>
-        <button onClick={handleLogin}>Login with Google</button>
+        <div className="logo-center">
+          <span className="logo-text">
+            Grade<span className="highlight">It?</span> 🔍
+          </span>
+        </div>
+        <button onClick={handleLogin} className="logout-button">
+          Login with Google
+        </button>
       </div>
     );
   }
 
   return (
+    <div className="page-container">
     <div className="app-container">
-      <header className="main-header">
-        <div className="nav-left">
-          <a href="/search" className="nav-btn">
-            Search Card
-          </a>
-          <a href="/dashboard" className="nav-btn">
-            Your Cards
-          </a>
-        </div>
-        <h1 className="logo">
-          Grade<span className="logo-highlight">It</span>
-          <span className="logo-question">?</span>
-        </h1>
-
-        <div className="nav-right">
-          <button onClick={handleLogout} className="logout-btn">
-            Logout ({user.displayName})
-          </button>
-        </div>
-      </header>
+      <Header user={user} onLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<SearchCard user={user} />} />
         <Route path="/search" element={<SearchCard user={user} />} />
         <Route path="/dashboard" element={<YourCards user={user} />} />
       </Routes>
+    </div>
     </div>
   );
 }
