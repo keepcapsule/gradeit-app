@@ -1,0 +1,85 @@
+body {
+  background-color: #121212;
+  color: white;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #111;
+  border-bottom: 2px solid orange;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  color: orange;
+  margin-right: 2rem;
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+
+button {
+  background: transparent;
+  border: 2px solid orange;
+  color: orange;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.auth-screen {
+  text-align: center;
+  padding: 5rem;
+}
+
+.card-form {
+  padding: 2rem;
+}
+
+.card-form input {
+  display: block;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 300px;
+}
+
+.result-card, .card-item {
+  background: #222;
+  border: 1px solid orange;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+}
+
+.card-item h3 {
+  margin-top: 0;
+}
+
+.card-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.card-edit-form input {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.card-edit-form button {
+  padding: 8px 14px;
+  background-color: #ff9f1c;
+  color: black;
+  font-weight: bold;
+  border: 1px solid #ff9f1c;
+  border-radius: 4px;
+  cursor: pointer;
+}
