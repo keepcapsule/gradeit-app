@@ -31,6 +31,11 @@ button {
   cursor: pointer;
 }
 
+button:hover {
+  background: orange;
+  color: black;
+}
+
 .auth-screen {
   text-align: center;
   padding: 5rem;
@@ -48,38 +53,170 @@ button {
   width: 300px;
 }
 
-.result-card, .card-item {
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-item {
   background: #222;
   border: 1px solid orange;
   padding: 1rem;
   margin-top: 1rem;
   border-radius: 8px;
+  width: 95%;
+  max-width: 600px;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-.card-item h3 {
-  margin-top: 0;
+.card-item:hover {
+  background: #2a2a2a;
 }
 
-.card-edit-form {
+.card-header {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 10px;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid #333;
 }
 
-.card-edit-form input {
-  padding: 10px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  font-size: 16px;
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.card-edit-form button {
-  padding: 8px 14px;
-  background-color: #ff9f1c;
-  color: black;
+.badge {
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-size: 0.8rem;
   font-weight: bold;
-  border: 1px solid #ff9f1c;
+  display: inline-block;
+  text-align: center;
+  min-width: 60px;
+}
+
+.green {
+  background-color: green;
+  color: white;
+}
+
+.orange {
+  background-color: orange;
+  color: black;
+}
+
+.red {
+  background-color: red;
+  color: white;
+}
+
+.icon-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 4px;
+}
+
+.toggle-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.card-body {
+  margin-top: 1rem;
+}
+
+.button-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.edit-btn,
+.delete-btn {
+  border: 1px solid orange;
+  background: transparent;
+  color: orange;
+  padding: 6px 12px;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+  background: orange;
+  color: black;
+}
+
+.full-badge {
+  width: 100%;
+  text-align: center;
+  padding: 8px 0;
+  font-weight: bold;
+  border-radius: 20px;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+.decision-pill {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-right: 0.5rem;
+  align-items: center;
+  align-self: center;
+
+}
+
+.card-title-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.card-title-text {
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+  text-align: center;
+}
+
+.centered-pill {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.2rem;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid #333;
+  position: relative;
+}
+
+.card-title-left {
+  flex: 0 0 auto;
+  font-weight: bold;
+}
+
+.card-title-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }

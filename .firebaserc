@@ -1,5 +1,7 @@
 {
   "projects": {
     "default": "gradeit-70083"
-  }
+  },
+  "targets": {},
+  "etags": {}
 }
