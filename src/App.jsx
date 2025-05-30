@@ -30,7 +30,11 @@ function App() {
   };
 
   if (loading) {
-    return <div style={{ color: "white", textAlign: "center", marginTop: "4rem" }}>Loading...</div>;
+    return (
+      <div style={{ color: "white", textAlign: "center", marginTop: "4rem" }}>
+        Loading...
+      </div>
+    );
   }
 
   if (!user) {
@@ -44,12 +48,25 @@ function App() {
 
   return (
     <div className="app-container">
-      <header>
-        <nav>
-          <a href="/search">Search Card</a>
-          <a href="/dashboard">Your Cards</a>
-          <button onClick={handleLogout}>Logout ({user.displayName})</button>
-        </nav>
+      <header className="main-header">
+        <div className="nav-left">
+          <a href="/search" className="nav-btn">
+            Search Card
+          </a>
+          <a href="/dashboard" className="nav-btn">
+            Your Cards
+          </a>
+        </div>
+        <h1 className="logo">
+          Grade<span className="logo-highlight">It</span>
+          <span className="logo-question">?</span>
+        </h1>
+
+        <div className="nav-right">
+          <button onClick={handleLogout} className="logout-btn">
+            Logout ({user.displayName})
+          </button>
+        </div>
       </header>
       <Routes>
         <Route path="/" element={<SearchCard user={user} />} />

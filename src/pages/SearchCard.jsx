@@ -82,7 +82,7 @@ function SearchCard({ user }) {
 
   return (
     <div className="card-form">
-      <h2>Grade Your Card</h2>
+      <h2>Worth Grading Your Card?</h2>
       <input name="name" placeholder="Card Name" onChange={handleChange} />
       <input name="raw" placeholder="Raw Value" onChange={handleChange} />
       <input

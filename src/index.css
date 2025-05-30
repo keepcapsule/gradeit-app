@@ -256,3 +256,69 @@ button:hover {
 
 .header-left { flex: 1; text-align: left; }
 .header-center { flex: 1; text-align: center; }
+
+.main-header {
+  background-color: #111;
+  border-bottom: 2px solid orange;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid orange;
+  border-radius: 4px;
+  background: transparent;
+  color: orange;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-btn:hover {
+  background: orange;
+  color: black;
+}
+
+.logout-btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid orange;
+  border-radius: 4px;
+  background: transparent;
+  color: orange;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.logout-btn:hover {
+  background: orange;
+  color: black;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 1px;
+}
+
+.logo-highlight {
+  color: orange;
+}
+
+.logo-question {
+  color: orange;
+  margin-left: 2px;
+}
+
