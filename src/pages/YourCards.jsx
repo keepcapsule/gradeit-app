@@ -59,22 +59,42 @@ function YourCards({ user }) {
 
     const pl9 = psa9Num - rawNum - gradingNum;
     const pl10 = psa10Num - rawNum - gradingNum;
+    const diff = pl10 - pl9;
 
-    let decision = "No";
-    let explanation = "No profit at grade 10";
+    const roundedPl9 = parseFloat(pl9.toFixed(2));
+    const roundedPl10 = parseFloat(pl10.toFixed(2));
 
-    if (pl10 > 0) {
-      if (pl9 > 0) {
-        decision = "Hell yeah";
-        explanation = "Strong profit at both grades";
-      } else if (pl9 > -5) {
-        decision = "Yes";
-        explanation = "Low risk, high grade profit";
-      } else {
-        decision = "Caution";
-        explanation = "Small loss and low 10 profit";
-      }
+    let decision, explanation;
+
+    if (roundedPl10 >= 50 && roundedPl9 >= -20) {
+      decision = "Hell yeah";
+      explanation = "🏆 Huge 10 profit, safe enough 9";
+    } else if (roundedPl10 <= 0) {
+      decision = "No";
+      explanation = "❌ No profit at grade 10";
+    } else if (roundedPl9 < -25 && roundedPl10 < 50) {
+      decision = "No";
+      explanation = "❌ Too much risk if graded a 9";
+    } else if (roundedPl9 < -25 && roundedPl10 >= 50) {
+      decision = "Yes";
+      explanation = "🔥 Big 10 upside despite 9 risk";
+    } else if (roundedPl9 >= 0 && roundedPl10 >= 50) {
+      decision = "Hell yeah";
+      explanation = "🏆 Win-win: profit either way";
+    } else if (roundedPl9 >= -25 && roundedPl9 < 0 && roundedPl10 >= 50) {
+      decision = "Yes";
+      explanation = "🔥 Small risk with big upside";
+    } else if (roundedPl9 >= -25 && roundedPl9 < 0 && roundedPl10 >= 30) {
+      decision = "Yes";
+      explanation = "🟠 Small 9 risk, decent 10 upside";
+    } else if (roundedPl9 >= -25 && roundedPl9 < 0 && roundedPl10 < 30) {
+      decision = "Caution";
+      explanation = "⚠️ Small loss and low 10 return";
+    } else {
+      decision = "Caution";
+      explanation = "⚠️ Borderline case";
     }
+    
 
     await updateDoc(doc(db, "cards", id), {
       name,
@@ -82,8 +102,9 @@ function YourCards({ user }) {
       grading: gradingNum,
       psa9: psa9Num,
       psa10: psa10Num,
-      pl9,
-      pl10,
+      pl9: roundedPl9,
+      pl10: roundedPl10,
+      diff: diff.toFixed(2),
       decision,
       explanation,
     });

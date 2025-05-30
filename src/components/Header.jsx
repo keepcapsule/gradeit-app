@@ -6,7 +6,7 @@ function Header({ user, onLogout }) {
 
   return (
     <header className="main-header">
-      <div className="nav-left">
+      <div className="header-group nav-left">
         <button className="nav-button" onClick={() => navigate("/search")}>
           Search Card
         </button>
@@ -14,12 +14,14 @@ function Header({ user, onLogout }) {
           Your Cards
         </button>
       </div>
-      <div className="logo-center">
+
+      <div className="header-group logo-center">
         <span className="logo-text">
           Grade<span className="highlight">It?</span>
         </span>
       </div>
-      <div className="nav-right">
+
+      <div className="header-group nav-right">
         {user && (
           <button className="logout-button" onClick={onLogout}>
             Logout ({user.displayName})

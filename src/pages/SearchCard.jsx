@@ -45,6 +45,9 @@ function SearchCard({ user }) {
     } else if (pl9 >= 0 && pl10 >= 50) {
       decision = "Hell yeah";
       explanation = "🏆 Win-win: profit either way";
+    } else if (pl9 >= -25 && pl10 >= 100) {
+      decision = "Hell yeah";
+      explanation = "💰 Big 10 upside, tolerable 9 risk";
     } else if (pl9 >= -25 && pl9 < 0 && pl10 >= 50) {
       decision = "Yes";
       explanation = "🔥 Small risk with big upside";
@@ -58,6 +61,8 @@ function SearchCard({ user }) {
       decision = "Caution";
       explanation = "⚠️ Borderline case";
     }
+
+    console.log("DEBUG →", { pl9, pl10, decision }); // ⬅️ Add this!
 
     const newResult = {
       ...form,
@@ -85,33 +90,20 @@ function SearchCard({ user }) {
       <h2>Worth Grading Your Card?</h2>
       <input name="name" placeholder="Card Name" onChange={handleChange} />
       <input name="raw" placeholder="Raw Value" onChange={handleChange} />
-      <input
-        name="grading"
-        placeholder="Grading Cost"
-        onChange={handleChange}
-      />
+      <input name="grading" placeholder="Grading Cost" onChange={handleChange} />
       <input name="psa9" placeholder="PSA 9 Price" onChange={handleChange} />
       <input name="psa10" placeholder="PSA 10 Price" onChange={handleChange} />
-      <button onClick={gradeCard}>Grade It</button>
+      <button onClick={gradeCard} className="grade-button">Grade It</button>
+
 
       {result && (
         <div className="result-card">
           <h3>Result for {result.name}</h3>
-          <p>
-            <b>Profit/Loss @ 9:</b> £{result.pl9}
-          </p>
-          <p>
-            <b>Profit/Loss @ 10:</b> £{result.pl10}
-          </p>
-          <p>
-            <b>Difference:</b> £{result.diff}
-          </p>
-          <p>
-            <b>GradeIt Decision:</b> {result.decision}
-          </p>
-          <p>
-            <b>Explanation:</b> {result.explanation}
-          </p>
+          <p><b>Profit/Loss @ 9:</b> £{result.pl9}</p>
+          <p><b>Profit/Loss @ 10:</b> £{result.pl10}</p>
+          <p><b>Difference:</b> £{result.diff}</p>
+          <p><b>GradeIt Decision:</b> {result.decision}</p>
+          <p><b>Explanation:</b> {result.explanation}</p>
         </div>
       )}
     </div>
