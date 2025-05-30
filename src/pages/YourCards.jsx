@@ -16,9 +16,19 @@ function YourCards({ user }) {
 
   useEffect(() => {
     const q = query(collection(db, "cards"), where("uid", "==", user.uid));
+
     const unsub = onSnapshot(q, (snapshot) => {
-      setCards(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+      const docs = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+
+      // Sort manually (descending) if timestamp exists
+      docs.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+
+      setCards(docs);
     });
+
     return () => unsub();
   }, [user]);
 
@@ -32,19 +42,32 @@ function YourCards({ user }) {
 
   const getBadgeClass = (decision) => {
     if (decision === "Hell yeah") return "badge green";
-    if (decision === "Yes") return "badge orange";
+    if (decision === "Yes") return "badge lime";
+    if (decision === "Caution") return "badge orange";
     return "badge red";
   };
 
   const getFullWidthBadgeClass = (decision) => {
     if (decision === "Hell yeah") return "full-badge green";
-    if (decision === "Yes") return "full-badge orange";
+    if (decision === "Yes") return "full-badge lime";
+    if (decision === "Caution") return "full-badge orange";
     return "full-badge red";
   };
 
   return (
     <div className="card-list">
       <h2>Your Cards</h2>
+      <div className="card-list-header">
+        <div className="header-left">
+          <strong>Card</strong>
+        </div>
+        <div className="header-center">
+          <strong>GradeIt?</strong>
+        </div>
+        <div className="header-right">
+          <strong>Actions</strong>
+        </div>
+      </div>
       <div className="cards-container">
         {cards.map((card) => (
           <div

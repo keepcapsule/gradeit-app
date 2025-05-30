@@ -43,14 +43,19 @@ button:hover {
 
 .card-form {
   padding: 2rem;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
 }
 
+
 .card-form input {
-  display: block;
+  width: 100%;
+  max-width: 100%;
   margin-bottom: 1rem;
   padding: 0.5rem;
   font-size: 1rem;
-  width: 300px;
+  box-sizing: border-box;
 }
 
 .cards-container {
@@ -87,6 +92,8 @@ button:hover {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex: 1; 
+  text-align: right;
 }
 
 .badge {
@@ -100,8 +107,13 @@ button:hover {
 }
 
 .green {
-  background-color: green;
-  color: white;
+  background-color: #00c851; /* strong green */
+  color: rgb(0, 0, 0);
+}
+
+.lime {
+  background-color: #aeea00; /* soft lime green */
+  color: black;
 }
 
 .orange {
@@ -110,7 +122,7 @@ button:hover {
 }
 
 .red {
-  background-color: red;
+  background-color: #d50000;
   color: white;
 }
 
@@ -205,18 +217,42 @@ button:hover {
 }
 
 .card-title-left {
-  flex: 0 0 auto;
+  flex: 1;
+  text-align: left;
   font-weight: bold;
 }
 
 .card-title-center {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  flex: 1;
+  text-align: center;
 }
 
 .header-right {
+  flex: 1;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   gap: 0.5rem;
 }
+
+.result-card {
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.card-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 600px;
+  width: 95%;
+  margin: 0 auto;
+  padding-bottom: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: orange;
+  text-transform: uppercase;
+}
+
+.header-left { flex: 1; text-align: left; }
+.header-center { flex: 1; text-align: center; }
