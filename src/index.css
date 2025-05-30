@@ -143,6 +143,8 @@ button:hover {
 
 .card-body {
   margin-top: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .button-row {
@@ -322,3 +324,73 @@ button:hover {
   margin-left: 2px;
 }
 
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.edit-modal {
+  background: #222;
+  border: 2px solid orange;
+  border-radius: 8px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 400px;
+  color: white;
+}
+
+.edit-modal input,
+.edit-modal textarea {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background: #121212;
+  border: 1px solid orange;
+  color: white;
+  border-radius: 4px;
+}
+
+.edit-modal h3 {
+  margin-top: 0;
+  color: orange;
+  text-align: center;
+}
+
+.card-edit-form input {
+  width: 100%;
+  padding: 0.6rem;
+  background-color: #1a1a1a;
+  border: 1px solid orange;
+  color: white;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.card-edit-form input:focus {
+  outline: none;
+  border-color: #ffaa00;
+  box-shadow: 0 0 5px orange;
+}
+
+.card-edit-label {
+  color: orange;
+  margin-bottom: 0.2rem;
+  font-size: 0.85rem;
+  font-weight: bold;
+  display: block;
+}
+
+.card-edit-form {
+  max-width: 500px;
+  width: 90%;
+  margin: 0 auto;
+}
